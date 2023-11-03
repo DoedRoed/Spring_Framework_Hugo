@@ -40,7 +40,10 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		{
 			throw new  CustomerNotFoundException();
 		}
-		return temp;
+		else
+		{
+			return temp;
+		}
 	}
 
 	@Override
@@ -49,7 +52,7 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		List<Customer> customerArrayList = new ArrayList<>();
 		for(Map.Entry<String, Customer>  entry : this.customerMap.entrySet() )
 		{
-			if(entry.getValue().getCompanyName().equals(name))
+			if(entry.getValue().getCompanyName().equalsIgnoreCase(name))
 			{
 				customerArrayList.add(entry.getValue());
 			}
@@ -71,7 +74,10 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		{
 			throw new  CustomerNotFoundException();
 		}
-		return customer;
+		else
+		{
+			return customer;
+		}
 	}
 
 	@Override
@@ -82,8 +88,11 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 		{
 			throw new  CustomerNotFoundException();
 		}
-		//Call the addCall on the customer
-		customer.addCall(callDetails);
+		else
+		{
+			//Call the addCall on the customer
+			customer.addCall(callDetails);
+		}
 	}
 
 }
