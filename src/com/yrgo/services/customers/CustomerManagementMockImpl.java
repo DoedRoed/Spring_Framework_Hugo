@@ -35,14 +35,14 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
-		Customer temp = this.customerMap.get(customerId);
-		if ((temp.equals(null)))
+		Customer customer = this.customerMap.get(customerId);
+		if ((customer.equals(null)))
 		{
 			throw new  CustomerNotFoundException();
 		}
 		else
 		{
-			return temp;
+			return customer;
 		}
 	}
 
@@ -75,13 +75,10 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 	@Override
 	public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
 		//First find the customer
-			Customer customer = this.customerMap.get(customerId);
-		if ((customer.equals(null)))
+			Customer customer = findCustomerById(customerId);
+		if (!(customer.equals(null)))
 		{
-			throw new  CustomerNotFoundException();
-		}
-		else
-		{
+
 			//Call the addCall on the customer
 			customer.addCall(callDetails);
 		}
