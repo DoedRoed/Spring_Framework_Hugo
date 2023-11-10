@@ -10,11 +10,17 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.Collection;
 
 public class CallHandlingServiceImpl implements CallHandlingService{
+    
+    private DiaryManagementService diaryManagementService;
+
+    private CustomerManagementService customerManagementService;
+    public CallHandlingServiceImpl(CustomerManagementService customerManagementService, DiaryManagementService diaryManagementService)
+    {
+            this.customerManagementService = customerManagementService;
+            this.diaryManagementService = diaryManagementService;
+    }
     @Override
     public void recordCall(String customerId, Call newCall, Collection<Action> actions) throws CustomerNotFoundException {
-        ClassPathXmlApplicationContext cointainer = new ClassPathXmlApplicationContext("application.xml");
-        CustomerManagementService customerManagementService = cointainer.getBean(CustomerManagementService.class);
-        DiaryManagementService diaryManagementService = cointainer.getBean(DiaryManagementService.class);
 
          customerManagementService.recordCall(customerId, newCall);
 
