@@ -5,17 +5,15 @@ import com.yrgo.domain.Call;
 import com.yrgo.services.customers.CustomerManagementService;
 import com.yrgo.services.customers.CustomerNotFoundException;
 import com.yrgo.services.diary.DiaryManagementService;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Collection;
 
 public class CallHandlingServiceImpl implements CallHandlingService{
-    
+
     private DiaryManagementService diaryManagementService;
 
     private CustomerManagementService customerManagementService;
-    public CallHandlingServiceImpl(CustomerManagementService customerManagementService, DiaryManagementService diaryManagementService)
-    {
+    public CallHandlingServiceImpl(CustomerManagementService customerManagementService, DiaryManagementService diaryManagementService) {
             this.customerManagementService = customerManagementService;
             this.diaryManagementService = diaryManagementService;
     }
