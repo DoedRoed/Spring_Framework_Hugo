@@ -9,12 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TBL_CALL")
+@Table(name="CUSTOMER_CALL")
 public class Call {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	private int callId;
 
 	private Date timeAndDate;
 
@@ -22,10 +22,10 @@ public class Call {
 
 	public Call(String notes){
 		// this defaults to a timestamp of "now"
-		this (notes, new java.util.Date());
+		this (new java.util.Date(), notes);
 	}
 
-	public Call(String notes, Date timestamp){
+	public Call(Date timestamp, String notes){
 		// this defaults to a timestamp of "now"
 		this.timeAndDate = timestamp;
 		this.notes = notes;
