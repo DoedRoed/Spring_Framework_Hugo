@@ -11,6 +11,10 @@ public class CustomerManagementServiceProductionImpl implements CustomerManageme
 
     CustomerDao dao;
 
+    public CustomerManagementServiceProductionImpl(CustomerDao dao)
+    {
+        this.dao = dao;
+    }
     @Override
     public void newCustomer(Customer newCustomer) {
          dao.create(newCustomer);
