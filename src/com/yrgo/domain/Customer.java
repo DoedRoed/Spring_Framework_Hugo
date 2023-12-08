@@ -18,15 +18,15 @@ public class Customer {
 
 	private String email;
 
+	private String notes;
 	private String telephone;
 
-	private String notes;
 
 	@OneToMany(cascade=CascadeType.ALL)
 	private List<Call> calls;
 
-	public Customer(String customerId, String companyName, String email,
-			             String telephone, String notes) {
+	public Customer(String customerId, String companyName, String notes, String email,
+			             String telephone) {
 		this(customerId, companyName, notes);
 		this.email = email;
 		this.telephone = telephone;
