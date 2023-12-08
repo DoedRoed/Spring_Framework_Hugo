@@ -39,4 +39,9 @@
 			</list>
 		</property>
 	</bean>
+	<!-- Advice -->
+	<!--<bean id="loggingAdvice"
+		  class="com.yrgo.advice.PerformanceTimingAdvice" /> -->
+	<!-- Generated Proxies -->
+
 </beans>
